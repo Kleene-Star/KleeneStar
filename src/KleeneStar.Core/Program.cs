@@ -8,7 +8,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 // Register the module loader
-builder.Services.AddSingleton<IModuleLoader, ModuleLoader>();
+builder.Services.AddSingleton<IModuleLoader>(serviceProvider =>
+{
+    var logger = serviceProvider.GetRequiredService<ILogger<ModuleLoader>>();
+    var loader = new ModuleLoader(logger);
+    
+    // Register example module
+    loader.RegisterModule(new ExampleModule());
+    
+    return loader;
+});
+
+// Register the hosted service for module lifecycle management
+builder.Services.AddHostedService<ModuleHostedService>();
 
 var app = builder.Build();
 
@@ -20,22 +32,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Initialize modules
+// Get module loader for API endpoints
 var moduleLoader = app.Services.GetRequiredService<IModuleLoader>();
-
-// Register example module
-if (moduleLoader is ModuleLoader loader)
-{
-    loader.RegisterModule(new ExampleModule());
-}
-
-var modules = await moduleLoader.LoadModulesAsync();
-
-foreach (var module in modules)
-{
-    await module.InitializeAsync(app.Services);
-    app.Logger.LogInformation("Initialized module: {ModuleName} v{Version}", module.Name, module.Version);
-}
 
 // API endpoints
 app.MapGet("/", () => new
@@ -61,18 +59,5 @@ app.MapGet("/modules", () => moduleLoader.LoadedModules.Select(m => new
 }))
 .WithName("GetModules")
 .WithTags("Modules");
-
-// Handle application shutdown
-var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
-lifetime.ApplicationStopping.Register(() =>
-{
-    foreach (var module in moduleLoader.LoadedModules)
-    {
-        // Call ShutdownAsync synchronously in the shutdown handler
-        // In a production system, consider using IHostedService for proper async shutdown
-        module.ShutdownAsync().GetAwaiter().GetResult();
-        app.Logger.LogInformation("Shut down module: {ModuleName}", module.Name);
-    }
-});
 
 app.Run();
