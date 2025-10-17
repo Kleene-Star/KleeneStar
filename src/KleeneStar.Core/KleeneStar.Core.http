@@ -1,0 +1,6 @@
+@KleeneStar.Core_HostAddress = http://localhost:5208
+
+GET {{KleeneStar.Core_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
