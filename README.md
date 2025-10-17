@@ -8,7 +8,7 @@ Whether you're building a local knowledge base, an issue tracker, or a distribut
 
 # Getting Started
 
-To get started with **KleeneStar**, you’ll set up the core runtime environment that powers all modules and plugins. This guide walks you through cloning the repository, restoring dependencies, and launching the server locally.
+To get started with **KleeneStar**, you'll set up the core runtime environment that powers all modules and plugins. This guide walks you through cloning the repository, restoring dependencies, and launching the server locally.
 
 
 ## Clone the repository
@@ -20,7 +20,7 @@ git clone https://github.com/kleene-star/kleenestar.git
 cd kleenestar
 ```
 
-Once inside the project directory, you’re ready to prepare the system for execution.
+Once inside the project directory, you're ready to prepare the system for execution.
 
 ## Restore dependencies
 
@@ -48,7 +48,7 @@ This is the default entry point for testing, development, and interaction with t
 
 # Legal & Licensing
 
-**KleeneStar** is released under the MIT License, a permissive open-source license that allows reuse, modification, and distribution with minimal restrictions. You’re free to use **KleeneStar** in personal, academic, or commercial projects—just include the original copyright notice.
+**KleeneStar** is released under the MIT License, a permissive open-source license that allows reuse, modification, and distribution with minimal restrictions. You're free to use **KleeneStar** in personal, academic, or commercial projects, just include the original copyright notice.
 
 The system is designed to be GDPR-compliant:
 - No tracking
@@ -56,7 +56,7 @@ The system is designed to be GDPR-compliant:
 - No hidden dependencies
 - Full transparency and infrastructure control
 
-**KleeneStar** respects your data and your autonomy. It’s built for clarity, not surveillance.
+**KleeneStar** respects your data and your autonomy. It's built for clarity, not surveillance.
 
 # Contributing
 
