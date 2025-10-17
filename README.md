@@ -2,7 +2,7 @@
 
 # KleeneStar - WebServer for Scalable, Plugin-Based Issue Applications
 
-**KleeneStar** is the central runtime and integration layer of the **KleeneStar** system. It hosts the core web server and binds all relevant modules into a unified, extensible platform—serving as the main entry point for development, deployment, and collaboration.
+**KleeneStar** is the central runtime and integration layer of the **KleeneStar** system. It hosts the core web server and binds all relevant modules into a unified, extensible platform, serving as the main entry point for development, deployment, and collaboration.
 
 Whether you're building a local knowledge base, an issue tracker, or a distributed collaboration platform, **KleeneStar** provides the foundation for scalable, privacy, conscious applications, with full control over infrastructure and semantics.
 
