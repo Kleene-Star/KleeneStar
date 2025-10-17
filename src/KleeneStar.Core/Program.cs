@@ -64,11 +64,13 @@ app.MapGet("/modules", () => moduleLoader.LoadedModules.Select(m => new
 
 // Handle application shutdown
 var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
-lifetime.ApplicationStopping.Register(async () =>
+lifetime.ApplicationStopping.Register(() =>
 {
     foreach (var module in moduleLoader.LoadedModules)
     {
-        await module.ShutdownAsync();
+        // Call ShutdownAsync synchronously in the shutdown handler
+        // In a production system, consider using IHostedService for proper async shutdown
+        module.ShutdownAsync().GetAwaiter().GetResult();
         app.Logger.LogInformation("Shut down module: {ModuleName}", module.Name);
     }
 });

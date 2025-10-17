@@ -1,4 +1,5 @@
 using KleeneStar.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace KleeneStar.Modules.Example;
@@ -18,7 +19,7 @@ public class ExampleModule : IModule
 
     public Task InitializeAsync(IServiceProvider serviceProvider)
     {
-        _logger = serviceProvider.GetService(typeof(ILogger<ExampleModule>)) as ILogger<ExampleModule>;
+        _logger = serviceProvider.GetService<ILogger<ExampleModule>>();
         _logger?.LogInformation("Example module initialized");
         return Task.CompletedTask;
     }
