@@ -1,3 +1,5 @@
+![KleeneStar](https://raw.githubusercontent.com/kleene-star/.github/main/docs/assets/img/banner.png)
+
 # Architecture Concept
 
 The architecture of **KleeneStar** follows a core-plus-modules model that enables a clear separation between central cross-cutting functions and domain-focused extensions. This principle forms the basis for a modular, scalable, and maintainable platform.

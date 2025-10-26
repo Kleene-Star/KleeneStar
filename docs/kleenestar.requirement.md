@@ -1,3 +1,5 @@
+![KleeneStar](https://raw.githubusercontent.com/kleene-star/.github/main/docs/assets/img/banner.png)
+
 # Requirements
 
 This document describes the concept for an extensible, web-based on-premises application that consolidates collaborative knowledge management, structured issue processing, and digital asset management into a unified platform. The application will be built on the [WebExpress-Framework](https://github.com/webexpress-framework) to ensure high modularity, scalability, and interoperability.

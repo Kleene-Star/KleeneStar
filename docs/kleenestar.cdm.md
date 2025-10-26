@@ -1,18 +1,24 @@
+![KleeneStar](https://raw.githubusercontent.com/kleene-star/.github/main/docs/assets/img/banner.png)
+
 # Kleenestar Core Data Model
 
-The **Kleenestar** Core Data Model provides a modular, typed architecture for the structured management of digital information objects. It is based on a clear separation between type definitions (`Class`) and concrete instances (`Object`). Through inheritance, semantic extensibility, and contextual organization via `Workspaces`, it achieves high flexibility and scalability. Attributes are modeled separately into definition (`Field`) and value (`Value`), enabling dynamic UI generation, validation, and polymorphic processing. Configuration is declared via JSON or YAML files outside the database, supporting automated provisioning and consistent multi-stage environments. Complemented by versioning, access control, and semantic linking, it forms a robust foundation for collaborative, revision-safe, and domain-specifically adaptable platform solutions.
+In today's digital work environment, information is both the most valuable asset and the greatest source of chaos. Knowledge is scattered across countless applications, data is stored in isolated silos, and workflows are fragmented, leading to inefficiencies, redundancies, and a loss of context. The **Kleenestar** platform is engineered to counteract this entropy by providing a unified, coherent, and semantically rich foundation for digital collaboration.
 
-## Introduction
+At the heart of this endeavor lies the **Kleenestar Core Data Model**. It is not merely a database schema but a comprehensive architectural philosophy for modeling, managing, and interconnecting digital information. Its design is guided by the principles of clarity, extensibility, and digital sovereignty. The primary objective is to create a system where the structure of information (`Class`, `Field`) is rigorously separated from its content (`Object`, `Value`). This fundamental separation enables a level of flexibility and automation that is impossible to achieve with rigid, monolithic application architectures.
 
-The digital working world is characterized by fragmented information flows, isolated tools, and redundant data stores. **Kleenestar** addresses these challenges with a central, modular platform built upon a clearly structured, extensible data model. At its core are three abstracted key objects: `Workspace`, `Entity`, and `Attribute`. They form the foundation for flexible, context-based organization of knowledge, tasks, and digital resources.
+By establishing clear contextual boundaries through `Workspaces`, facilitating reuse and consistency through inheritance, and making relationships between information first-class citizens (`Link`), the model provides a robust framework. This framework is designed to grow and adapt to specific domain needs without sacrificing its core integrity. This document provides a detailed exploration of this model, its components, and the strategic advantages that arise from its design.
 
-These concepts are abstracted through inheritance. The goal is a consistent, extensible model that can efficiently represent both generic and domain-specific information objects.
+## Architectural Overview: Core Principles of the Data Model
 
-## Data model
+The **Kleenestar** Core Data Model is built upon several key architectural principles that work in concert to deliver a flexible and scalable system. Understanding these principles is essential to grasping the model's full potential.
 
-The **Kleenestar** Core Data Model is based on a clearly structured, modular architecture that distinguishes between type definitions, concrete instances, and semantic extensions. The central idea is the separation of structure and content, complemented by contextual organization, polymorphic processing, and flexible extensibility.
+- **Separation of Structure and Content:** The most critical principle is the strict division between the definition of an information type (`Class`, `Field`) and its concrete instance (`Object`, `Value`). This allows the system to understand the "shape" of data, enabling it to dynamically generate user interfaces, perform validation, and process information polymorphically.
+- **Contextualization through Workspaces:** Information does not exist in a vacuum. `Workspaces` act as semantic containers that provide context, control access, and segregate data. This is fundamental for multi-tenancy, project-based collaboration, and organizing information in a way that mirrors human cognitive structures.
+- **Explicit, Typed Relationships:** Instead of relying on implicit or simple foreign-key relationships, the model uses a dedicated `Link` entity. This makes relationships first-class citizens, allowing them to be typed, described, and queried. The result is a rich knowledge graph, not just a collection of disconnected tables.
+- **Granular, Non-Destructive History:** All changes are captured through a `Version` entity. This delta-based approach ensures a complete, auditable, and storage-efficient history of every object, which is crucial for compliance, accountability, and collaborative workflows.
+- **Declarative, Code-Driven Configuration:** System-critical definitions, such as classes and roles, are managed outside the database in version-controllable files (JSON/YAML). This aligns with modern Infrastructure-as-Code (IaC) and GitOps practices, ensuring transparency, repeatability, and maintainability.
 
-The following diagram shows the most important components and their relationships:
+The following diagram illustrates the interplay between these core components:
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════════════╗
@@ -48,245 +54,150 @@ Explanation of relationships:
 - **Object → Link:** Entities can be connected via links (2:n).
 - **Object → Comment / Version / FileReference:** Additional metadata and content (1:n).
 
-### Workspace - The contextual frame
+### Workspace - The Contextual Frame
+
+A `Workspace` is far more than a simple folder or container. It represents a complete contextual boundary—a digital realm with its own set of users, configurations, and semantic rules. It provides the primary mechanism for data segregation and organization. For example, a workspace could represent a single project, a client account, a department's internal knowledge base, or a thematic research area. Everything within a workspace shares a common context, making information discovery intuitive and access control manageable.
+
+| Field       | Type      | Description
+|-------------|-----------|-------------------------------------------
+| workspace_id| UUID      | Unique identifier
+| icon        | URI       | URI for UI representation
+| title       | String    | Name of the workspace
+| description | Text      | Contextual description
+| category    | Text      | Typing (e.g., "Project", "Team")
+| tags        | List      | Keywords for categorization
+| created_at  | Timestamp | Creation timestamp
+
+### Entity - The Abstract Information Object
+
+The concept of an `Entity` is central to the model and is realized through two distinct forms: `Class` (the blueprint) and `Object` (the instance). This separation is analogous to classes and objects in object-oriented programming and is the key to the model's power and flexibility.
+
+#### Class - Structure and Inheritance
+
+A `Class` is the formal, abstract definition of an information type. It specifies the structure, semantics, and rules that all its instances must follow. It defines which fields an object of its type will have, their data types, and their validation rules. Through inheritance (`parent_class_id`), classes can form a hierarchy, allowing for the creation of specialized types that reuse and extend the properties of more general base types. This promotes consistency and reduces redundancy.
+
+| Field           | Type    | Description
+|-----------------|---------|---------------------------------------------------
+| class_id        | UUID    | Unique identifier
+| icon            | URI     | URI for UI representation
+| name            | String  | Unique name of the type
+| parent_class_id | UUID    | Inheritance from another class
+| is_abstract     | Boolean | `true` if the class cannot be instantiated
+| fields          | List    | Structure definition (references to `Field` objects)
+| description     | Text    | Semantic description
+
+#### Object - Concrete Instances
+
+An `Object` is a concrete manifestation of a `Class`. It is a tangible piece of information within the system—be it a task, a document, a contact, or any other domain-specific entity. Each object belongs to exactly one `Workspace`, which provides its context, and is an instance of exactly one `Class`, which defines its structure. The object itself holds core data like a title and content, but its rich semantic meaning comes from its associated `Value`s.
+
+| Field        | Type      | Description
+|--------------|-----------|-------------------------------------
+| object_id    | UUID      | Unique identifier
+| class_id     | UUID      | Reference to the `Class`
+| workspace_id | UUID      | Membership in the `Workspace`
+| title        | String    | Title of the object
+| content      | RichText  | Main content (optional)
+| status       | Enum      | Lifecycle status
+| created_at   | Timestamp | Creation timestamp
+| created_by   | UUID      | Reference to the creating `User`
+| updated_at   | Timestamp | Timestamp of the last modification
+| updated_by   | UUID      | Reference to the last editing `User`
+
+### Attribute - The Semantic Extension
+
+Attributes provide the mechanism for semantically enriching entities with custom metadata. This concept is also split into two parts: the definition (`Field`) and the instance (`Value`). This separation ensures that custom data is just as structured and validated as core data.
+
+#### Field - Attribute Definition
+
+A `Field` is the blueprint for a piece of metadata. It defines the name, data type, validation rules (`is_required`, `validation_pattern`), and UI-related properties (`placeholder`, `help_text`) of an attribute. A field can be associated with one or more classes, making it a reusable component for defining structure. This is the key to enabling users or developers to extend the data model without altering the core database schema.
+
+| Field              | Type    | Description
+|--------------------|---------|-------------------------------------------------
+| field_id           | UUID    | Unique identifier
+| name               | String  | Field name (unique within the class context)
+| type               | Enum    | Data type (Text, Number, Date, Selection, etc.)
+| allowed_values     | List    | For `Selection`: valid values
+| scope              | List    | Valid classes (`class_id`s) for this field
+| is_required        | Boolean | Required field
+| is_unique          | Boolean | Value must be unique
+| is_multiple        | Boolean | Multiple values per object allowed
+| validation_pattern | Regex   | Regular expression for validation
+| default_value      | Mixed   | Default value
+| is_editable        | Boolean | Value can be changed after creation
+| is_visible         | Boolean | Visibility in the UI
+| is_system          | Boolean | System-critical field
+| placeholder        | String  | Placeholder text for input fields
+| help_text          | String  | Contextual help for users
+| icon               | URI     | UI icon for the field
+
+#### Value - Attribute Value
+
+A `Value` is the concrete data point that links a `Field` to an `Object`. It holds the actual content for a specific attribute on a specific object instance. For example, if an object of class `Task` has a field `DueDate`, the `Value` entity would store the specific date for that task, linking the `object_id` of the task to the `field_id` of `DueDate`.
+
+| Field      | Type      | Description
+|------------|-----------|-------------------------------------
+| value_id   | UUID      | Unique identifier
+| object_id  | UUID      | Reference to the object instance
+| field_id   | UUID      | Reference to the `Field` definition
+| value      | Mixed     | The concrete value
+| created_at | Timestamp | Assignment timestamp
+| updated_at | Timestamp | Last modification
+
+#### Link - Explicit, First-Class Relationships
+
+In many systems, relationships are merely implicit database foreign keys. The **Kleenestar** model elevates relationships to be `Link` entities, which are first-class citizens. A `Link` is a dedicated object that connects a `source_object` to a `target_object` with a specific semantic `link_type` (e.g., "RELATES_TO", "DUPLICATES", "BLOCKS"). This approach transforms the collection of data into a true knowledge graph. It allows relationships themselves to have metadata (like a description or creator), to be queried directly, and to be visualized, enabling a much deeper understanding of how information is interconnected.
+
+| Field            | Type      | Description
+|------------------|-----------|----------------------------------------------------------------------
+| link_id          | UUID      | Unique identifier
+| source_object_id | UUID      | The source object of the relationship
+| target_object_id | UUID      | The target object of the relationship
+| link_type        | Enum      | Semantic type of the relationship (e.g., "RELATES_TO", "DUPLICATES", "BLOCKS")
+| description      | Text      | Optional description of the link
+| created_at       | Timestamp | Creation timestamp
+| created_by       | UUID      | Reference to the creating `User`
 
-A workspace is a thematic or functional container that defines content, configurations, and semantic boundaries. It represents, for example, a project, a department, a client mandate, or a thematic area.
+#### Version - Granular, Non-Destructive History
 
-Key characteristics:
+Traceability is not an afterthought but a core feature. Every meaningful change to an `Object` or its `Value`s is captured in a `Version` entity. Instead of wastefully duplicating the entire object on each save, this model uses a delta-based approach. The `Version` object stores only the fields that were changed (`changed_fields`), along with metadata about who made the change, when, and optionally why. This provides a highly efficient, complete, and auditable history, enabling features like undo/redo, change analysis, and compliance reporting without bloating the database.
 
-|Field        |Type     |Description
-|-------------|---------|------------------------------------
-|workspace_id |UUID     |Unique identifier
-|icon         |URI      |URI for UI representation (e.g., calendar, tag, email)
-|title        |String   |Name of the workspace
-|description  |Text     |Context description
-|category     |Enum     |Typing (e.g., "Project", "Team")
-|tags         |List     |Keywords for categorization
-|created_at   |Timestamp|Creation timestamp
+| Field          | Type      | Description
+|----------------|-----------|-----------------------------------------------------------------------------
+| version_id     | UUID      | Unique identifier
+| object_id      | UUID      | Reference to the versioned `Object`
+| change_type    | Enum      | Type of change (e.g., "CREATE", "UPDATE", "DELETE")
+| changed_fields | JSON      | A JSON object containing the changed fields and their old/new values
+| reason         | Text      | Optional reason for the change (provided by the user)
+| created_at     | Timestamp | Timestamp of the change
+| created_by     | UUID      | Reference to the `User` who performed the change
 
-Functional meaning: Workspaces structure the platform into logical units. They enable separation of content, aggregation of related entities, and targeted control of visibility and configuration.
+#### AccessControlEntry (ACE) - Fine-Grained, Explicit Access Control
 
-### Entity - The abstract information object
+Security and access control are handled through an explicit and granular `AccessControlEntry` (ACE) model. Instead of relying on broad, implicit roles, an ACE defines a specific `permission` (e.g., "READ", "WRITE") on a specific `resource` (a `Workspace`, `Object`, or even a `Field`) for a specific `principal` (a `User` or `Group`). This allows for extremely fine-grained control over who can see and do what. The model supports both "allow" and "deny" rules, providing the flexibility needed to manage complex security requirements in collaborative or multi-tenant environments.
 
-In the **Kleenestar** data model, the entity serves as the central concept for structured, typed information objects. An entity describes not only content, but also its semantic role, relationships, and extensibility. It is not a rigid data structure, but an abstract modeling unit that can be flexibly adapted to different use cases through typing, inheritance, and contextualization.
+| Field          | Type    | Description
+|----------------|---------|--------------------------------------------------------------------------
+| ace_id         | UUID    | Unique identifier
+| principal_id   | UUID    | ID of the principal (can be a `user_id` or `group_id`)
+| principal_type | Enum    | Type of the principal ("USER" or "GROUP")
+| resource_id    | UUID    | ID of the resource (`workspace_id`, `object_id`, `field_id`)
+| resource_type  | Enum    | Type of the resource ("WORKSPACE", "OBJECT", "FIELD")
+| permission     | String  | The granted permission (e.g., "READ", "WRITE", "DELETE")
+| is_allowed     | Boolean | `true` for "allow", `false` for "deny" (Deny rules take precedence)
 
-Entities exist in two clearly separated forms:
 
-- **Class:** the formal definition of a type, comparable to a class in object-oriented systems. It specifies which fields exist, which data types are used, and whether the type can be instantiated.
-- **Object:** the concrete manifestation of an entity type with actual content and values. It represents an individual object in the system, e.g., an article, a task, or an asset.
+### System-Level Features
 
-Advantages of this separation:
+The architecture of the **Kleenestar** data model is designed for more than just the mere storage and structuring of data. Rather, the underlying design decisions, particularly the strict separation of structure and content, enable a range of higher-level, system-wide functionalities. These features extend beyond pure data management and form the basis for the automation, maintainability, and dynamic adaptability of the entire platform. The following sections describe how the data model directly contributes to the realization of these powerful system capabilities.
 
-- Consistent structure definition
-- Reusability through inheritance
-- Dynamic UI generation
-- Validation and type checking
+#### UI Generation from Type Definitions
 
-Entities are always assigned to a workspace, which contextualizes and logically groups them. They can be linked to each other, versioned, and semantically extended via attributes.
+A key benefit of the strict separation of structure and content is the ability to automatically generate user interfaces. The platform can read the `Class` and `Field` definitions and dynamically construct forms and views for creating, editing, and displaying objects. A `Field` of type `Date` becomes a date picker, a `Selection` becomes a dropdown, and `is_required` flags translate directly into client-side validation. This dramatically accelerates development and ensures that the UI is always in sync with the data model.
 
-#### Class - Structure and inheritance
+#### Declarative Configuration and Extensibility
 
-An entity type describes the structure, semantics, and rules of an information object. It can appear as an abstract base type or as a concrete subtype.
-
-Structure:
-
-|Field          |Type    |Description
-|---------------|--------|-------------------
-|type_id        |UUID    |Unique identifier
-|icon           |URI     |URI for UI representation (e.g., calendar, tag, email)
-|name           |String  |Name of the type
-|parent_type_id |UUID    |Inheritance relationship
-|is_abstract    |Boolean |Instantiability
-|fields         |List    |Structure definition
-|description    |Text    |Semantic description
-
-##### Abstract base types
-
-Abstract entities define common structural characteristics and behavior without being instantiated themselves. Examples:
-
-- `AbstractEntity`
-- `KnowledgeBaseEntity`
-- `ProcessEntity`
-- `ResourceEntity`
-
-##### Concrete subtypes
-
-Concrete entities inherit from base types and specify additional fields or behavior:
-
-- `Article` (`KnowledgeBaseEntity`)
-- `Task` (`ProcessEntity`)
-- `Asset` (`ResourceEntity`)
-- `Checklist`, `DecisionLog`, `Template` (`KnowledgeBaseEntity`)
-
-Function: Inheritance enables reusability, type consistency, and polymorphic processing. New subtypes can be defined and registered by developers or customers.
-
-#### Object - Concrete objects
-
-An entity instance is the concrete manifestation of an entity type within a workspace. It contains the actual content and links.
-
-Structure:
-
-|Field           |Type      |Description
-|----------------|----------|--------------------
-|entity_id       |UUID      |Unique identifier
-|type_id         |UUID      |Reference to the entity type
-|workspace_id    |UUID      |Membership
-|title           |String    |Title
-|content         |RichText  |Content
-|status          |Enum      |Lifecycle status
-|version         |Integer   |Version number
-|linked_entities |List      |Linked entities
-|created_at      |Timestamp |Creation timestamp
-
-### Attribute - The semantic extension
-
-Attributes are custom fields that augment entities with additional metadata. They consist of a definition and a value modeled separately.
-
-#### Field
-
-The definition describes the formal structure, validity, and validation rules of a custom attribute. It serves as a template for `Value` instances and enables typed, context-dependent extension of entities.
-
-|Field              |Type    |Description
-|-------------------|--------|-------------------------------------
-|definition_id      |UUID    |Unique identifier
-|name               |String  |Field name
-|type               |Enum    |Data type (Text, Number, Date, Selection)
-|allowed_values     |List    |For selection fields: valid values
-|scope              |List    |Valid entity types
-|is_required        |Boolean |Required field
-|is_unique          |Boolean |Indicates whether the value must be unique within a workspace
-|is_multiple        |Boolean |Indicates whether multiple values per entity instance are allowed
-|validation_pattern |Regex   |Optional regular expression pattern for format validation (e.g., email)
-|default_value      |Mixed   |Default value
-|is_editable        |Boolean |Indicates whether the value can be changed after first assignment
-|is_visible         |Boolean |Controls visibility in the UI (e.g., for system fields or admin-only)
-|is_system          |Boolean |Marks system-critical fields that must not be deleted or overwritten
-|placeholder        |String  |Placeholder text in the input field (e.g., "e.g., +49 123 4567890")
-|help_text          |String  |Contextual help or description for users
-|icon               |URI     |URI for UI representation (e.g., calendar, tag, email)
-
-#### Value
-
-The attribute value stores the actual value of a custom field for a specific entity instance. It is directly linked to an attribute type and constitutes the semantic extension of the information object. Separating definition and value enables clear typing, validation, and reusability.
-
-|Field         |Type      |Description
-|--------------|----------|---------------------------
-|value_id      |UUID      |Unique identifier
-|entity_id     |UUID      |Reference to the entity instance
-|definition_id |UUID      |Reference to the definition
-|value         |Mixed     |Concrete value
-|created_at    |Timestamp |Assignment timestamp
-|updated_at    |Timestamp |Last change
-
-Function: Separating definition and value enables validation, reusability, and UI generation. Attributes can be inherited or overridden, depending on the entity type.
-
-## Relationships and interoperability
-
-Entities can be linked across workspace boundaries. The platform supports bidirectional relationships, event-based synchronization, and semantic linking. Each relationship is represented by a link, which can be semantically classified using a link type (e.g., "references", "is part of", "replaces").
-
-Example of a bidirectional relationship:
-
-A task can be linked to an asset required to complete the task. At the same time, the asset references the task in which it is used. This relationship is bidirectional and allows navigation in both directions:
-
-```
-Task: "Create presentation"
-   └─ LinkType: "uses"
-       └─ Asset: "Corporate Template.pptx"
-
-Asset: "Corporate Template.pptx"
-   └─ LinkType: "used in"
-       └─ Task: "Create presentation"
-```       
-       
-These semantically typed links enable consistent, searchable, and context-based interconnection of information objects.
-   
-## Validation and consistency rules
-
-The **Kleenestar** Core Data Model ensures that all entity instances are consistent and valid by strictly adhering to the structure definitions of their associated entity types. Validation occurs on multiple levels:
-
-- Required fields: Attribute types can be marked with `is_required = true`. When creating or updating an entity instance, the system checks whether all required fields are filled.
-- Data type checking: Each attribute value is checked against the type specified in the definition (e.g., Date, Enum, Text). Invalid formats or type deviations are rejected.
-- Value range: For selection fields (Enum), the system checks whether the entered value belongs to the allowed `allowed_values`.
-- Scope: Attribute types are only valid for specific entity types. The platform prevents attributes from being used outside their defined scope.
-- Regex pattern check: For fields of type Text or String, an optional regular expression (`validation_pattern`) can be stored. This allows checking of complex formats.
-
-These rules ensure a consistent data foundation and enable reliable processing, filtering, and presentation of content.
-
-## UI generation from type definitions
-
-A central feature of the **Kleenestar** model is automatic generation of user interfaces based on entity type definitions. Each entity type contains structured field information that can be directly translated into dynamic forms and views:
-
-- Form fields: For each attribute, an appropriate input element is generated (e.g., dropdown for Enum, calendar for Date, text field for String).
-- Frontend validation: Required fields, allowed values, data types, and optionally regex patterns are validated client-side before data is saved.
-- Layout and grouping: Attributes can be organized into groups or tabs, based on metadata in the definition.
-- Multilingual support: Field names and descriptions can be displayed language-dependently, since type definitions are stored in a language-sensitive manner.
-- Manual configuration: The automatically generated UI can be specifically adapted through configuration files or UI overrides. For example, field orders, custom components, conditional logic, or visual styles can be controlled per project or per type.
-
-This creates a flexible, maintainable UI that automatically adapts to new types and extensions- and can be fine-tuned manually when needed without deep UI programming.
-
-## Versioning and history
-
-Every `Object`, every `Value`, and every comment can be versioned to make changes traceable and to transparently document the lifecycle of an information object. Versioning is done via a separate version object, which is linked to the respective element and contains metadata such as timestamp, reason for change, and author.
-
-Mechanisms of versioning:
-
-- Versioning on changes: Every change to content, attributes, or comments automatically creates a new version with a timestamp and an optional change reason.
-- Comparison and restoration: Previous versions can be viewed, compared with one another, and restored if necessary-both at the field and the object level.
-- Audit trail: The complete history of an entity forms the basis for revision security, regulatory traceability, and collaborative tracking.
-- Type-dependent versioning: Depending on the entity type, versioning can be configured granularly- for example, only for certain fields, only on status changes, or on external triggers.
-
-This function is particularly relevant in regulated environments (e.g., medical, legal, finance) or in collaborative processes with high documentation requirements. It enables not only technical traceability, but also semantic transparency over the entire lifecycle of a digital object.
-
-## Access control (ACL) and visibility
-
-The authorization concept is hybrid. It combines a code-based, declarative approach for defining permissions and roles with flexible management of groups and their assignments.
-
-- Permission: An atomic authorization describing a specific action (e.g., `entity:edit`). Declared as a class in code.
-- Role: Bundles multiple permissions into a logical role (e.g., `Editor`). Also declared as a class in code.
-- Group: A freely definable collection of users (e.g., "Marketing Team", "Project Admins"). Groups are managed in the data model.
-- User: A user account in the system.
-
-A user's permissions thus result indirectly from the combination of their group memberships and the roles assigned to these groups in a specific context.
-
-Permissions are primarily assigned at the `Workspace` level and inherited by the `Entities`. These can be overridden at the `Entity` level. Read or write access to `Attributes` is additionally controlled via the `Field`. A user must therefore have the general permission for an action on the `Entity` (e.g., edit) and also fulfill the specific role requirement of the attribute.
-
-Multi-tenancy: In multi-tenant environments, the workspace structure ensures clear separation between organizational units.
-
-These mechanisms ensure data protection, role-based collaboration, and controlled visibility of information.
-
-## Configuration
-
-To enable consistent and automatable system configuration, **Kleenestar** relies on a declarative configuration strategy outside the database. All relevant settings-e.g., UI overrides, type registrations, workspace templates, or authorization rules, can be stored as structured parameter files in JSON or YAML format directly on the server.
-
-Advantages of this architecture:
-
-- Automation: The configuration files are fully compatible with infrastructure management tools such as Puppet, Ansible, or Terraform. This makes it possible to reliably provision multiple identically configured stages (e.g., Dev, Test, Prod).
-- Version control: Since the configuration is not in the database, it can be versioned, documented, and audited via Git or other VCS systems.
-- Transparency and portability: The configuration is readable, editable, and portable-ideal for containerized deployments or multi-tenant environments.
-- Separation of data and control: The platform deliberately separates persisted user data (in the DB) from system-controlling parameters (in the file system), which increases maintainability and security.
-
-This configuration strategy makes **Kleenestar** particularly suitable for complex, scalable, and automatically managed platform landscapes, without sacrificing flexibility or adaptability.
-
-## Extensibility and type registration
-
-The platform supports dynamic registration of new entity types by plugins or external providers. Each newly defined type is based on an existing base type and comes with its own structured field definition. This allows the data model to be flexibly extended without jeopardizing the consistency or integrity of the existing architecture.
-
-Example of type registration:
-
-A third-party plugin registers the new entity type `IncidentReport`, which inherits from `ProcessEntity`. After registration, this type can be used immediately, including UI generation, validation, and semantic linking with existing entities.
-
-## Advantages of the model
-
-The **Kleenestar** Core Data Model is based on clear principles that enable a flexible and consistent information architecture. The following points show how structure, extensibility, and context interact meaningfully to make digital work processes efficient and scalable.
-
-- Separation of structure and content: Entity types define, entity instances store.
-- Inheritance and abstraction: Reusable types and polymorphic processing.
-- Extensibility: Attributes enable flexible metadata without schema changes.
-- Contextualization: Workspaces create semantic order.
-- Validation and UI generation: Structure definitions enable dynamic forms and checks.
+The system's core structure is not hidden away in a database. `Class` definitions, roles, and other critical configurations are defined in human-readable JSON or YAML files stored in the file system. This makes the system's configuration transparent, versionable with Git, and deployable as part of an automated CI/CD pipeline. It allows developers to practice Infrastructure-as-Code, ensuring consistency across development, staging, and production environments. Furthermore, new `Class` types can be registered via plugins, allowing the platform to be extended by third parties without compromising its architectural integrity.
 
 ## Conclusion
 
-The **Kleenestar** Core Data Model forms a robust, typed foundation for the structured management of complex information objects in modular work platforms. Through contextual structuring into workspaces, the typable and linkable modeling of entities, and semantic extensibility via attributes, it creates a flexible system that can cover both generic and domain-specific requirements.
-
-The consistent separation between type definition and instance, support for abstract and inheritable entity types, and dynamic extension through custom attributes make the model a powerful foundation for knowledge-intensive, agile organizations. It lays the groundwork for consistent data management, scalable information architectures, and semantically precise digital work processes.
+The **Kleenestar** Core Data Model is intentionally designed to be more than just a schema; it is a strategic framework for building adaptable, scalable, and maintainable information systems. By formalizing concepts like `Link`, `Version`, and `AccessControlEntry` and adhering to the strict separation of structure and content, it provides a powerful foundation. It moves beyond simple data storage to create a system that understands the semantics, context, and history of information. This approach mitigates digital chaos, fosters structured collaboration, and provides a solid platform for building the next generation of knowledge management tools.
