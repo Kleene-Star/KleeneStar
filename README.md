@@ -10,7 +10,7 @@ Whether you're building a local knowledge base, an issue tracker, or a distribut
 
 To get started with **KleeneStar**, you'll set up the core runtime environment that powers all modules and plugins. This guide walks you through cloning the repository, restoring dependencies, and launching the server locally.
 
-For a deeper understanding of the system architecture, data model, and extension points, see the [documentation](./doc/).
+For a deeper understanding of the system architecture, data model, and extension points, see the [documentation](./docs/).
 
 ## Clone the repository
 
