@@ -12,10 +12,11 @@
 		<RepositoryUrl>https://github.com/webexpress-framework/WebExpress.Server</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<Configurations>Debug;Release;DebugLocal</Configurations>
 	</PropertyGroup>
 	
 	<ItemGroup Condition="'$(Configuration)' != 'DebugLocal'">
-		<PackageReference Include="WebExpress.WebApp" Version="0.0.8-alpha" />
+		<PackageReference Include="WebExpress.WebApp" Version="0.0.9-alpha" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)' == 'DebugLocal'">
