@@ -82,7 +82,7 @@ The concept of an `Entity` is central to the model and is realized through two d
 
 A `Class` is the formal, abstract definition of an information type. It specifies the structure, semantics, and rules that all its instances must follow. It defines which fields an object of its type will have, their data types, and their validation rules. Through inheritance (`parent_class_id`), classes can form a hierarchy, allowing for the creation of specialized types that reuse and extend the properties of more general base types. This promotes consistency and reduces redundancy.
 
-An `Object` is a concrete manifestation of a `Class`. It is a tangible piece of information within the system—be it a task, a document, a contact, or any other domain-specific entity. Each object belongs to exactly one `Workspace`, which provides its context, and is an instance of exactly one `Class`, which defines its structure. The object itself holds core data like a title and content, but its rich semantic meaning comes from its associated `Value`s.
+An `Object` is a concrete manifestation of a `Class`. It represents a tangible piece of information within the system, such as a task, a document, a contact, or any other domain-specific entity. Each object is assigned to exactly one `Workspace`, which defines its contextual environment, and it is an instance of exactly one `Class`, which determines its structural definition. The object contains core data like a title and content, while its deeper semantic meaning is derived from the associated `Value`.
 
 ## Attribute - The Semantic Extension
 

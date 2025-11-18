@@ -214,7 +214,7 @@ These principles form the foundation of the **KleeneStar** architecture. They de
 
 - **Loose coupling:** Modules and components are designed so that changes in one area have only minimal impact on others. This facilitates maintenance, replacement, and parallel evolution.
 - **API-first:** All functions are provided via clearly defined, documented interfaces. This enables consistent integration of internal and external systems and simplifies automation.
-- **Security-by-design:** Security aspects are an integral part from the outset—from authentication and authorization to encryption and audit logging.
+- **Security-by-design:** Security aspects are an integral part from the outset, including authentication, authorization, encryption, and audit logging.
 - **Configuration over customization:** Functional and technical parameters are primarily controlled via configuration to implement individual requirements without code changes. Configurations are always stored at file level to enable Git versioning and to document changes transparently. For automated distribution and updates of these configuration files, configuration management tools such as Puppet or comparable solutions can be used.
 - **Testability:** Architecture and code are structured so that automated tests at all levels (unit, integration, end-to-end) are efficiently possible.
 
@@ -223,7 +223,7 @@ These principles form the foundation of the **KleeneStar** architecture. They de
 The technological guardrails define preferred standards, protocols, frameworks, and formats. They create a unified technological framework that ensures interoperability, security, and maintainability while providing sufficient flexibility for future developments.
 
 - **Preferred protocols:** Use of open, standardized protocols such as HTTPS/REST, WebSocket, or gRPC for communication and integration.
-- **Frameworks:** Use of proven, long-term supported frameworks (e.g., **WebExpress-Framework** as the platform base) with an active community and clear update strategy.
+- **Frameworks:** Use of proven, long-term supported frameworks (e.g., **WebExpress** framework as the platform base) with an active community and clear update strategy.
 - **Data and configuration formats:** Use of interoperable formats such as JSON or YAML for data exchange and XML as the primary configuration format. Configuration files are deliberately stored at file level so they can be versioned in Git and changes documented. For automated distribution and updates of these configurations, configuration management tools like Puppet or similar solutions may be used. In containerized environments (e.g., Docker, Kubernetes, OpenShift), XML configurations can be mounted as volumes or provided via ConfigMaps/Secrets to ensure consistent, versioned, and automatically deployable configuration even in highly scalable scenarios. UTF-8 is the mandatory standard encoding for all text-based formats to preserve compatibility and interoperability.
 - **Interoperability:** Design of interfaces and data models compatible with common enterprise systems and open-source solutions.
 
@@ -242,8 +242,7 @@ The **KleeneStar** technology stack is chosen to enable a modular, extensible, a
 
 ### Programming Languages, Frameworks, Databases, and Messaging Systems
 
-This section describes the central technologies **KleeneStar** is built upon, including the primary programming language, the frameworks in use, and the databases and messaging systems that support both internal and external communication.
-
+**KleeneStar** is built on a robust technological foundation that combines a modern programming language with proven frameworks and scalable infrastructure. Its architecture integrates databases and messaging systems that ensure reliable internal workflows and seamless external communication. Together, these components form the backbone of the platform’s performance, flexibility, and interoperability.
 
 - **Programming language:** Primarily C# for the development of core components, modules, and plugins. For client-side browser functionality, vanilla JavaScript is used without additional frontend frameworks.
 - **Frameworks:** .NET (current LTS release) as the central runtime, supplemented by ASP.NET Core for web APIs.
