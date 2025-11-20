@@ -23,7 +23,7 @@ Specifically, the following goals are pursued:
 
 ## Product Description
 
-The product is a web-based application built on the **WebExpress** framework that serves as a central platform for knowledge management, project control, and asset management. It is characterized by its modular architecture, high configurability, and seamless interoperability of its components.
+The **KleeneStar** is a web-based application built on the **WebExpress** framework that serves as a central platform for knowledge management, project control, and asset management. It is characterized by its modular architecture, high configurability, and seamless interoperability of its components. The name is derived from the Kleene star of formal language theory, named after the mathematician Stephen Cole Kleene. The Kleene star is an operator that, when applied to a set of symbols or expressions, forms the Kleene closure and thus allows arbitrary repetition (including the empty repetition). This mathematical metaphor symbolises the platform’s core idea: to systematically connect elements (data, objects, modules), to enable repetition and flexible composition, so that complex structures and processes can emerge from simple building blocks.
 
 ### Core functions and modules
 
