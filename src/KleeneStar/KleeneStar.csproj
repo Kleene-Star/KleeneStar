@@ -4,7 +4,7 @@
 		<Version>0.0.1.0</Version>
 		<AssemblyVersion>0.0.1.0</AssemblyVersion>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<ApplicationIcon>kleenestar.ico</ApplicationIcon>
 		<Authors>kleenestar.project@gmail.com</Authors>
 		<StartupObject>KleeneStar.Program</StartupObject>
@@ -16,7 +16,7 @@
 	</PropertyGroup>
 	
 	<ItemGroup Condition="'$(Configuration)' != 'DebugLocal'">
-		<PackageReference Include="WebExpress.WebApp" Version="0.0.9-alpha" />
+		<PackageReference Include="WebExpress.WebApp" Version="0.0.10-alpha" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)' == 'DebugLocal'">
@@ -31,8 +31,54 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\..\KleeneStar.Core\src\Core\KleeneStar.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Update="Config\webexpress.config.xml">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\cmdb.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\dev.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\fin.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\hr.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\pm.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\proc.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\sd.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\workspaces\CMDB.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\workspaces\HR.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\workspaces\PM.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\workspaces\FIN.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\workspaces\DEV.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\workspaces\PROC.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\workspaces\SD.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 

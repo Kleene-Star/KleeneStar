@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Workspace>
+	<Id>8C8F10A2-4A98-4A8C-B0C4-12359CAC3C5F</Id>
+	<Key>HR</Key>
+	<Name>Human Resources</Name>
+	<Category>HumanResources</Category>
+	<Description>Workspace for managing employee records, onboarding, and organizational structure.</Description>
+	<State>Active</State>
+	<Icon>/icons/hr.svg</Icon>
+	<Created>2025-11-09T15:20:00</Created>
+	<Updated>2025-11-09T15:25:00</Updated>
+	<Sealed>false</Sealed>
+	<Inherited />
+	<AccessModifier>Restricted</AccessModifier>
+</Workspace>
+

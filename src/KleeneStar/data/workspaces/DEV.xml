@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Workspace>
+	<Id>660E9B11-2D54-4A36-84F9-F3BF5C78B748</Id>
+	<Key>DEV</Key>
+	<Name>Software Development</Name>
+	<Category>Engineering</Category>
+	<Description>Workspace for managing source code, repositories, development tasks, and release pipelines.</Description>
+	<State>Active</State>
+	<Icon>/icons/dev.svg</Icon>
+	<Created>2025-11-09T15:40:00</Created>
+	<Updated>2025-11-09T15:45:00</Updated>
+	<Sealed>false</Sealed>
+	<Inherited />
+	<AccessModifier>Public</AccessModifier>
+</Workspace>
