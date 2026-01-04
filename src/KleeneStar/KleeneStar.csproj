@@ -21,9 +21,6 @@
 
 	<ItemGroup Condition="'$(Configuration)' == 'DebugLocal'">
 		<ProjectReference Include="..\..\..\WebExpress.WebApp\src\WebExpress.WebApp\WebExpress.WebApp.csproj" />
-		<ProjectReference Include="..\..\..\WebExpress.WebCore\src\WebExpress.WebCore\WebExpress.WebCore.csproj" />
-		<ProjectReference Include="..\..\..\WebExpress.WebIndex\src\WebExpress.WebIndex\WebExpress.WebIndex.csproj" />
-		<ProjectReference Include="..\..\..\WebExpress.WebUI\src\WebExpress.WebUI\WebExpress.WebUI.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
