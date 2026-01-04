@@ -32,7 +32,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Config\webexpress.config.xml">
+		<None Update="_Config\webexpress.config.xml">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Update="data\icons\cmdb.svg">
