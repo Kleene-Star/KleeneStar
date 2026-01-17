@@ -9,7 +9,7 @@
 		<Authors>kleenestar.project@gmail.com</Authors>
 		<StartupObject>KleeneStar.Program</StartupObject>
 		<RuntimeIdentifiers>win-x64;linux-x64;linux-arm;</RuntimeIdentifiers>
-		<RepositoryUrl>https://github.com/webexpress-framework/WebExpress.Server</RepositoryUrl>
+		<RepositoryUrl>https://github.com/kleenestar-project/KleeneStar</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<Configurations>Debug;Release;DebugLocal</Configurations>
@@ -28,7 +28,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\KleeneStar.Core\src\Core\KleeneStar.Core.csproj" />
+	  <ProjectReference Include="..\..\..\KleeneStar.Core\src\KleeneStar.Core\KleeneStar.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
