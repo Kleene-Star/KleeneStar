@@ -6,7 +6,7 @@
 	<Category>Operations</Category>
 	<Description>Workspace for managing purchase orders, supplier relations, and procurement workflows.</Description>
 	<State>Active</State>
-	<Icon>/icons/proc.svg</Icon>
+	<Icon>/kleenestar/icons/proc.svg</Icon>
 	<Created>2025-11-09T15:30:00</Created>
 	<Updated>2025-11-09T15:35:00</Updated>
 	<Sealed>false</Sealed>
