@@ -6,7 +6,7 @@
 	<Category>HumanResources</Category>
 	<Description>Workspace for managing employee records, onboarding, and organizational structure.</Description>
 	<State>Active</State>
-	<Icon>/kleenestar/icons/hr.svg</Icon>
+	<Icon>/kleenestar/assets/icons/hr.svg</Icon>
 	<Created>2025-11-09T15:20:00</Created>
 	<Updated>2025-11-09T15:25:00</Updated>
 	<Sealed>false</Sealed>

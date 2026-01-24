@@ -6,7 +6,7 @@
 	<Category>Engineering</Category>
 	<Description>Workspace for managing source code, repositories, development tasks, and release pipelines.</Description>
 	<State>Active</State>
-	<Icon>/kleenestar/icons/dev.svg</Icon>
+	<Icon>/kleenestar/assets/icons/dev.svg</Icon>
 	<Created>2025-11-09T15:40:00</Created>
 	<Updated>2025-11-09T15:45:00</Updated>
 	<Sealed>false</Sealed>

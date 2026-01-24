@@ -6,7 +6,7 @@
 	<Category>Support</Category>
 	<Description>Workspace for handling service desk operations.</Description>
 	<State>Active</State>
-	<Icon>/kleenestar/icons/sd.svg</Icon>
+	<Icon>/kleenestar/assets/icons/sd.svg</Icon>
 	<Created>2025-11-01T18:45:00</Created>
 	<Updated>2025-11-01T18:50:00</Updated>
 	<Sealed>false</Sealed>

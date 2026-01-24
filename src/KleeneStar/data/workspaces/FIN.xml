@@ -6,7 +6,7 @@
 	<Category>Finance</Category>
 	<Description>Workspace for managing budgets, invoices, and financial approvals.</Description>
 	<State>Active</State>
-	<Icon>/kleenestar/icons/fin.svg</Icon>
+	<Icon>/kleenestar/assets/icons/fin.svg</Icon>
 	<Created>2025-10-01T18:45:00</Created>
 	<Updated>2025-10-01T18:50:00</Updated>
 	<Sealed>false</Sealed>

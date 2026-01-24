@@ -7,7 +7,7 @@
 	<Category>Compliance</Category>
 	<Description>Workspace for managing configuration items and asset relationships.</Description>
 	<State>Active</State>
-	<Icon>/kleenestar/icons/cmdb.svg</Icon>
+	<Icon>/kleenestar/assets/icons/cmdb.svg</Icon>
 	<Created>2025-11-03T18:45:00</Created>
 	<Updated>2025-11-03T18:50:00</Updated>
 	<Sealed>false</Sealed>
