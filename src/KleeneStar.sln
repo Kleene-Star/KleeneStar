@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KleeneStar.Model", "..\..\K
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kleenestar.Model.Test", "..\..\KleeneStar.Model\src\Kleenestar.Model.Test\Kleenestar.Model.Test.csproj", "{41CC36C2-2F67-AF25-737C-8D1A023E6DE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KleeneStar.Model.Sqlite", "..\..\KleeneStar.Model\src\KleeneStar.Model.Sqlite\KleeneStar.Model.Sqlite.csproj", "{D00DBF2A-5500-88EF-1405-C92EB592EE44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +118,24 @@ Global
 		{41CC36C2-2F67-AF25-737C-8D1A023E6DE9}.Release|x64.Build.0 = Release|Any CPU
 		{41CC36C2-2F67-AF25-737C-8D1A023E6DE9}.Release|x86.ActiveCfg = Release|Any CPU
 		{41CC36C2-2F67-AF25-737C-8D1A023E6DE9}.Release|x86.Build.0 = Release|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Debug|x64.Build.0 = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Debug|x86.Build.0 = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.DebugLocal|x64.ActiveCfg = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.DebugLocal|x64.Build.0 = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.DebugLocal|x86.ActiveCfg = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.DebugLocal|x86.Build.0 = Debug|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Release|x64.ActiveCfg = Release|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Release|x64.Build.0 = Release|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Release|x86.ActiveCfg = Release|Any CPU
+		{D00DBF2A-5500-88EF-1405-C92EB592EE44}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
