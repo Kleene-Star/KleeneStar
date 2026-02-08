@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <config version="1">
 	<!-- Provider: SqlServer, PostgreSQL or SQLite -->
-	<provider>SQLite</provider>
+	<provider>Microsoft.Data.Sqlite</provider>
 
 	<!-- Assembly that provides the provider‑specific DbContext. -->
 	<assembly>KleeneStar.Model.Sqlite</assembly>
