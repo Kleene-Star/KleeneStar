@@ -48,124 +48,124 @@
 		<None Update="data\db\readme.md">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-absence.svg">
+		<None Update="data\icons\absence.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-approval.svg">
+		<None Update="data\icons\approval.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-asset.svg">
+		<None Update="data\icons\asset.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-budget.svg">
+		<None Update="data\icons\budget.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-bug.svg">
+		<None Update="data\icons\bug.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-build.svg">
+		<None Update="data\icons\build.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-change.svg">
+		<None Update="data\icons\change.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-compliance.svg">
+		<None Update="data\icons\compliance.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-contract.svg">
+		<None Update="data\icons\contract.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-costcenter.svg">
+		<None Update="data\icons\costcenter.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-delivery.svg">
+		<None Update="data\icons\delivery.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-doc.svg">
+		<None Update="data\icons\doc.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-employee.svg">
+		<None Update="data\icons\employee.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-feature.svg">
+		<None Update="data\icons\feature.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-forecast.svg">
+		<None Update="data\icons\forecast.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-incident.svg">
+		<None Update="data\icons\incident.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-invoice.svg">
+		<None Update="data\icons\invoice.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-knowledge.svg">
+		<None Update="data\icons\knowledge.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-onboarding.svg">
+		<None Update="data\icons\onboarding.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-orgunit.svg">
+		<None Update="data\icons\orgunit.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-po.svg">
+		<None Update="data\icons\po.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-policy.svg">
+		<None Update="data\icons\policy.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-position.svg">
+		<None Update="data\icons\position.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-problem.svg">
+		<None Update="data\icons\problem.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-rel.svg">
+		<None Update="data\icons\rel.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-release.svg">
+		<None Update="data\icons\release.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-releaseplan.svg">
+		<None Update="data\icons\releaseplan.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-repo.svg">
+		<None Update="data\icons\repo.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-requirement.svg">
+		<None Update="data\icons\requirement.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-roadmap.svg">
+		<None Update="data\icons\roadmap.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-servicerequest.svg">
+		<None Update="data\icons\servicerequest.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-sprint.svg">
+		<None Update="data\icons\sprint.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-stakeholder.svg">
+		<None Update="data\icons\stakeholder.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-supplier.svg">
+		<None Update="data\icons\supplier.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-task.svg">
+		<None Update="data\icons\task.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-tender.svg">
+		<None Update="data\icons\tender.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-ticket.svg">
+		<None Update="data\icons\ticket.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-training.svg">
+		<None Update="data\icons\training.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-usecase.svg">
+		<None Update="data\icons\usecase.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<None Update="data\icons\class-vuln.svg">
+		<None Update="data\icons\vuln.svg">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Update="data\icons\cmdb.svg">
