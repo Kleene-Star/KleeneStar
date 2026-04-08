@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  width="150"
+  height="150"
+  viewBox="0 0 150 150"
+  xmlns="http://www.w3.org/2000/svg">
+  <rect
+     width="150"
+     height="150"
+     fill="#d9d900"
+     id="rect1"
+     style="fill:#c0a4ff;fill-opacity:1" />
+  <circle
+     cx="28.740545"
+     cy="25.670275"
+     r="17.36022"
+     fill="#020617"
+     stroke="#1f2937"
+     stroke-width="3.47204"
+     id="circle4"
+     style="fill:none" />
+  <path
+     d="M 28.740546,8.3100551 A 17.36022,17.36022 0 0 1 46.100765,25.670274"
+     fill="none"
+     stroke="#22c55e"
+     stroke-width="5.20807"
+     stroke-linecap="round"
+     id="path4" />
+  <path
+     id="line1"
+     style="fill:none;stroke:#ffffff;stroke-width:13.7874;stroke-linecap:round;stroke-linejoin:round"
+     d="M 91.419922,35.829105 V 114.1709 Z M 58.580078,55.415042 V 114.1709 Z m 65.681642,6.529297 V 114.1709 Z M 25.738281,75.000979 V 114.1709 Z" />
+</svg>
