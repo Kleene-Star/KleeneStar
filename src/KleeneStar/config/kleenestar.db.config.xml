@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config version="1">
+	<!-- Provider: SqlServer, PostgreSQL or SQLite -->
+	<provider>Microsoft.Data.Sqlite</provider>
+
+	<!-- Assembly that provides the provider‑specific DbContext. -->
+	<assembly>KleeneStar.Model.Sqlite</assembly>
+
+	<!-- Must be valid for the selected provider. -->
+	<connectionstring>Data Source=data/db/kleenestar.db</connectionstring>
+</config>

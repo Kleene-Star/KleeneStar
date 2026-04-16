@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using WebExpress.WebCore;
+using WebExpress.WebCore.WebLog;
 
 namespace KleeneStar
 {
@@ -17,6 +18,13 @@ namespace KleeneStar
             var app = new WebEx()
             {
                 Name = Assembly.GetExecutingAssembly().GetName().Name
+            };
+
+            app.Initialization += (s, e) =>
+            {
+                var log = WebEx.ComponentHub.LogManager.DefaultLog;
+                using var frame = new LogFrame(log, "KleeneStar startup");
+                log.Info($"{app.Name} version {Assembly.GetExecutingAssembly().GetName().Version} initializing...");
             };
 
             app.Execution(args);

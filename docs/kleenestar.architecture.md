@@ -1,4 +1,4 @@
-![KleeneStar](https://raw.githubusercontent.com/kleene-star/.github/main/docs/assets/img/banner.png)
+![KleeneStar](https://raw.githubusercontent.com/kleenestar-project/.github/main/docs/assets/img/banner.png)
 
 # Architecture Concept
 
@@ -118,7 +118,8 @@ The core-plus-modules architecture model of **KleeneStar** describes the fundame
 
 ### Event Bus
 
-The **KleeneStar** Event Bus is an independently operated, distributed messaging service that serves as the central backbone for asynchronous communication. It connects all modules—regardless of whether they run in the same data center, in different Kubernetes namespaces, or at geographically separated locations—and ensures reliable, scalable, and fault-tolerant event processing.
+The **KleeneStar** Event Bus is an independently operated, distributed messaging service that serves as the central backbone for asynchronous communication. It connects all modules, whether they run in the same data center, in different Kubernetes namespaces, or at geographically separated locations, and ensures reliable, scalable, and fault-tolerant event processing.
+
 
 Architectural characteristics:
 
@@ -161,7 +162,8 @@ Example: A publisher (e.g., Process Management module) connects to a broker in t
 
 ### Reverse Index (Inverted Index)
 
-The **KleeneStar** Reverse Index is a distributed, cross-module indexing service that serves as a shared search foundation for all modules. It enables consistent, performant, and scalable full-text search across content produced and maintained by different services—regardless of whether it is stored locally or provided via APIs. The reverse index thus forms the backbone for semantic linking, contextual navigation, and cross-module research.
+The **KleeneStar** Reverse Index is a distributed, cross-module indexing service that serves as a shared search foundation for all modules. It enables consistent, performant, and scalable full-text search across content produced and maintained by different services, whether stored locally or provided via APIs. As such, the reverse index forms the backbone for semantic linking, contextual navigation, and cross-module research.
+
 
 Architectural characteristics:
 
@@ -199,7 +201,8 @@ Architectural characteristics:
 ╚══════════════════════════════════════════════════════════════════════════════════════╝
 ```
 
-Example: The Documentation module registers a new Markdown page with metadata (title, tags, language). The index extracts relevant tokens, creates a semantic profile, and stores it in shard S1. The Reporting module issues a search query for “Ticket Lifecycle” – the reverse index aggregates hits from S1 and S3, filters by language and module context, and returns the results. If an index node fails, a replica takes over and ensures seamless search continuity.
+Example: The Documentation module registers a new Markdown page along with metadata such as title, tags, and language. The reverse index extracts relevant tokens, generates a semantic profile, and stores it in shard S1. Later, the Reporting module issues a search query for "Ticket Lifecycle." The reverse index aggregates matching entries from shards S1 and S3, applies filters based on language and module context, and returns the results. If an index node becomes unavailable, a replica automatically takes over to maintain uninterrupted search functionality.
+
 
 ## Architectural Principles and Guidelines
 
@@ -211,7 +214,7 @@ These principles form the foundation of the **KleeneStar** architecture. They de
 
 - **Loose coupling:** Modules and components are designed so that changes in one area have only minimal impact on others. This facilitates maintenance, replacement, and parallel evolution.
 - **API-first:** All functions are provided via clearly defined, documented interfaces. This enables consistent integration of internal and external systems and simplifies automation.
-- **Security-by-design:** Security aspects are an integral part from the outset—from authentication and authorization to encryption and audit logging.
+- **Security-by-design:** Security aspects are an integral part from the outset, including authentication, authorization, encryption, and audit logging.
 - **Configuration over customization:** Functional and technical parameters are primarily controlled via configuration to implement individual requirements without code changes. Configurations are always stored at file level to enable Git versioning and to document changes transparently. For automated distribution and updates of these configuration files, configuration management tools such as Puppet or comparable solutions can be used.
 - **Testability:** Architecture and code are structured so that automated tests at all levels (unit, integration, end-to-end) are efficiently possible.
 
@@ -220,7 +223,7 @@ These principles form the foundation of the **KleeneStar** architecture. They de
 The technological guardrails define preferred standards, protocols, frameworks, and formats. They create a unified technological framework that ensures interoperability, security, and maintainability while providing sufficient flexibility for future developments.
 
 - **Preferred protocols:** Use of open, standardized protocols such as HTTPS/REST, WebSocket, or gRPC for communication and integration.
-- **Frameworks:** Use of proven, long-term supported frameworks (e.g., **WebExpress-Framework** as the platform base) with an active community and clear update strategy.
+- **Frameworks:** Use of proven, long-term supported frameworks (e.g., **WebExpress** framework as the platform base) with an active community and clear update strategy.
 - **Data and configuration formats:** Use of interoperable formats such as JSON or YAML for data exchange and XML as the primary configuration format. Configuration files are deliberately stored at file level so they can be versioned in Git and changes documented. For automated distribution and updates of these configurations, configuration management tools like Puppet or similar solutions may be used. In containerized environments (e.g., Docker, Kubernetes, OpenShift), XML configurations can be mounted as volumes or provided via ConfigMaps/Secrets to ensure consistent, versioned, and automatically deployable configuration even in highly scalable scenarios. UTF-8 is the mandatory standard encoding for all text-based formats to preserve compatibility and interoperability.
 - **Interoperability:** Design of interfaces and data models compatible with common enterprise systems and open-source solutions.
 
@@ -239,7 +242,7 @@ The **KleeneStar** technology stack is chosen to enable a modular, extensible, a
 
 ### Programming Languages, Frameworks, Databases, and Messaging Systems
 
-This section describes the central technologies **KleeneStar** is built upon—from the primary programming language and used frameworks to databases and messaging systems for internal and external communication.
+**KleeneStar** is built on a robust technological foundation that combines a modern programming language with proven frameworks and scalable infrastructure. Its architecture integrates databases and messaging systems that ensure reliable internal workflows and seamless external communication. Together, these components form the backbone of the platform’s performance, flexibility, and interoperability.
 
 - **Programming language:** Primarily C# for the development of core components, modules, and plugins. For client-side browser functionality, vanilla JavaScript is used without additional frontend frameworks.
 - **Frameworks:** .NET (current LTS release) as the central runtime, supplemented by ASP.NET Core for web APIs.
@@ -248,7 +251,7 @@ This section describes the central technologies **KleeneStar** is built upon—f
 
 ### Target Environments
 
-This defines the operational environments in which **KleeneStar** can run and how the platform can be deployed—from classic on-premises installations to modern container orchestration.
+This defines the operational environments in which **KleeneStar** can run and outlines the available deployment options, ranging from classic on-premises installations to modern container orchestration platforms.
 
 - **On-premises:** Fully installable in customer-owned data centers, considering data protection and compliance requirements.
 - **Container orchestration:** Support for operation in containerized environments (e.g., Kubernetes, OpenShift, Azure Kubernetes Service) for easy scaling and automated deployment.
@@ -264,12 +267,12 @@ The integration and communication patterns of **KleeneStar** are designed to ena
 
 **KleeneStar** follows an API-first strategy where all functions are provided via clearly defined, documented interfaces.
 
-- REST is used as the primary paradigm for synchronous, resource-oriented communication, especially for CRUD operations and third-party system integrations.
-- gRPC is used for performant, binary communication between internal services when low latency and strict typing are required.
-- GraphQL is optionally used for scenarios where clients require flexible queries and over- or under-fetching should be avoided. All APIs are versioned, use HTTPS/TLS for transport encryption, and rely on standardized authentication and authorization mechanisms (e.g., OAuth 2.0, OpenID Connect).
-- Versioning is implemented via URI versions (e.g., /api/v1/...).
-- Security: All APIs use HTTPS/TLS, authentication via OAuth 2.0 or OpenID Connect, authorization via role-based access control (RBAC).
-- Documentation: OpenAPI/Swagger definitions are generated automatically and versioned.
+- **REST:** Primary paradigm for synchronous, resource-oriented communication and third-party integrations.
+- **gRPC:** Binary, low-latency communication between internal services with strict typing.
+- **GraphQL:** Optional for flexible queries and avoiding over-/under-fetching. All APIs are versioned, use HTTPS/TLS for transport encryption, and rely on standardized authentication and authorization mechanisms (e.g., OAuth 2.0, OpenID Connect).
+- **Versioning:** Implemented via URI paths (e.g., `/api/v1/...`).
+- **Security:** All APIs use HTTPS/TLS, authentication via OAuth 2.0 or OpenID Connect, authorization via role-based access control (RBAC).
+- **Documentation:** OpenAPI/Swagger definitions are generated automatically and versioned.
 
 Example: A REST endpoint POST `/api/v1/tasks` creates a new task. The client sends JSON data, the server validates it, persists the record, and returns the resource with a unique ID.
 
@@ -291,7 +294,7 @@ Data flows within **KleeneStar** are designed to be clearly defined, traceable, 
 - Data formats are standardized (JSON) to ensure interoperability.
 - For complex workflows, either orchestration (central control) or choreography (event-driven self-organization) is used depending on the scenario.
 
-Example: A user uploads a new asset in the Asset Management module. That module emits an AssetUploaded event. The Knowledge Management module receives the event, automatically creates a linked knowledge entry, and adds metadata.
+Example: A user uploads a new asset in the Asset Management module. That module emits an `AssetUploaded` event. The Knowledge Management module receives the event, automatically creates a linked knowledge entry, and adds metadata.
 
 ### Interfaces to Third-Party Systems
 

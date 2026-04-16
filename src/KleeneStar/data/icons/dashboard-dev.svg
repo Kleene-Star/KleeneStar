@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  width="150"
+  height="150"
+  viewBox="0 0 150 150"
+  xmlns="http://www.w3.org/2000/svg">
+  <rect
+     width="150"
+     height="150"
+     fill="#d9d900"
+     id="rect1"
+     style="fill:#bf6d9f;fill-opacity:1" />
+  <path
+     id="line1"
+     style="fill:none;stroke:#ffffff;stroke-width:13.7874;stroke-linecap:round;stroke-linejoin:round"
+     d="M 91.419922,35.829105 V 114.1709 Z M 58.580078,55.415042 V 114.1709 Z m 65.681642,6.529297 V 114.1709 Z M 25.738281,75.000979 V 114.1709 Z" />
+  <g
+     transform="translate(7.8364312,9.7843866)"
+     id="g6">
+    <rect
+       x="0"
+       y="0"
+       width="20"
+       height="10"
+       rx="3"
+       fill="#22c55e"
+       id="rect3" />
+    <rect
+       x="26"
+       y="0"
+       width="20"
+       height="10"
+       rx="3"
+       fill="#38bdf8"
+       id="rect4" />
+    <rect
+       x="52"
+       y="0"
+       width="20"
+       height="10"
+       rx="3"
+       fill="#facc15"
+       id="rect5" />
+    <rect
+       x="78"
+       y="0"
+       width="20"
+       height="10"
+       rx="3"
+       fill="#f97316"
+       id="rect6" />
+  </g>
+  <g
+     transform="matrix(1.4324413,0,0,1.4324413,4.6530442,22.586224)"
+     fill="none"
+     stroke="#e5e7eb"
+     stroke-width="3"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g8"
+     style="fill:#ffffff;fill-opacity:0.43005952">
+    <!-- Left bracket -->
+    <path
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#ffffff;fill-opacity:0.43005952;stroke:none;stroke-linecap:butt;stroke-linejoin:miter;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+       d="M 10.900391,6.8007812 A 1.5,1.5 0 0 0 8.8007813,7.0996094 l -6,7.9999996 a 1.50015,1.50015 0 0 0 0,1.800782 l 6,8 a 1.5,1.5 0 0 0 2.0996097,0.298828 1.5,1.5 0 0 0 0.298828,-2.09961 L 5.875,16 11.199219,8.9003906 A 1.5,1.5 0 0 0 10.900391,6.8007812 Z"
+       id="path6" />
+    <!-- Right bracket -->
+    <path
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#ffffff;fill-opacity:0.43005952;stroke:none;stroke-linecap:butt;stroke-linejoin:miter;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+       d="M 44.212891,6.515625 A 1.5,1.5 0 0 0 43.099609,6.8007812 1.5,1.5 0 0 0 42.800781,8.9003906 L 48.125,16 42.800781,23.099609 a 1.5,1.5 0 0 0 0.298828,2.09961 1.5,1.5 0 0 0 2.09961,-0.298828 l 6,-8 a 1.50015,1.50015 0 0 0 0,-1.800782 l -6,-7.9999996 A 1.5,1.5 0 0 0 44.212891,6.515625 Z"
+       id="path7" />
+    <!-- Slash (like />) -->
+    <path
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#ffffff;fill-opacity:0.43005952;stroke:none;stroke-linecap:butt;stroke-linejoin:miter;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+       d="m 26.556641,4.6074219 a 1.5,1.5 0 0 0 -1.949219,0.8359375 l -8,19.9999996 a 1.5,1.5 0 0 0 0.835937,1.949219 1.5,1.5 0 0 0 1.949219,-0.835937 l 8,-20.0000004 A 1.5,1.5 0 0 0 26.556641,4.6074219 Z"
+       id="path8" />
+  </g>
+</svg>

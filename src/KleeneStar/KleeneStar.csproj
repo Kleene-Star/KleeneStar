@@ -4,26 +4,23 @@
 		<Version>0.0.1.0</Version>
 		<AssemblyVersion>0.0.1.0</AssemblyVersion>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<ApplicationIcon>kleenestar.ico</ApplicationIcon>
 		<Authors>kleenestar.project@gmail.com</Authors>
 		<StartupObject>KleeneStar.Program</StartupObject>
 		<RuntimeIdentifiers>win-x64;linux-x64;linux-arm;</RuntimeIdentifiers>
-		<RepositoryUrl>https://github.com/webexpress-framework/WebExpress.Server</RepositoryUrl>
+		<RepositoryUrl>https://github.com/kleenestar-project/KleeneStar</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<Configurations>Debug;Release;DebugLocal</Configurations>
 	</PropertyGroup>
 	
 	<ItemGroup Condition="'$(Configuration)' != 'DebugLocal'">
-		<PackageReference Include="WebExpress.WebApp" Version="0.0.9-alpha" />
+		<PackageReference Include="WebExpress.WebApp" Version="0.0.10-alpha" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)' == 'DebugLocal'">
 		<ProjectReference Include="..\..\..\WebExpress.WebApp\src\WebExpress.WebApp\WebExpress.WebApp.csproj" />
-		<ProjectReference Include="..\..\..\WebExpress.WebCore\src\WebExpress.WebCore\WebExpress.WebCore.csproj" />
-		<ProjectReference Include="..\..\..\WebExpress.WebIndex\src\WebExpress.WebIndex\WebExpress.WebIndex.csproj" />
-		<ProjectReference Include="..\..\..\WebExpress.WebUI\src\WebExpress.WebUI\WebExpress.WebUI.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -31,8 +28,175 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Config\webexpress.config.xml">
+	  <EmbeddedResource Include="data\icons\kleenestar.svg">
+	    <LogicalName>$(MSBuildProjectName).Assets.%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\KleeneStar.Core\src\KleeneStar.Core\KleeneStar.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="config\kleenestar.db.config.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="config\webexpress.config.xml">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\db\readme.md">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\absence.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\approval.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\asset.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\budget.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\bug.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\build.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\change.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\dashboard-fin.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\dashboard-dev.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\compliance.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\contract.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\costcenter.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\dashboard-ops.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\delivery.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\doc.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\employee.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\feature.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\forecast.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\incident.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\invoice.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\knowledge.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\onboarding.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\orgunit.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\po.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\policy.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\position.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\problem.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\rel.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\release.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\releaseplan.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\repo.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\requirement.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\roadmap.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\servicerequest.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\sprint.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\stakeholder.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\supplier.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\task.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\tender.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\ticket.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\training.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\usecase.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\vuln.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\cmdb.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\dev.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\fin.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\hr.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\pm.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\proc.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="data\icons\sd.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 
