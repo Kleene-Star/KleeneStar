@@ -36,7 +36,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\KleeneStar.Core\src\KleeneStar.Core\KleeneStar.Core.csproj" />
-	  <ProjectReference Include="..\..\..\KleeneStar.Protal\src\KleeneStar.Portal\KleeneStar.Portal.csproj" />
+	  <ProjectReference Include="..\..\..\KleeneStar.Portal\src\KleeneStar.Portal\KleeneStar.Portal.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
