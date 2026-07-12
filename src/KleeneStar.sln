@@ -15,9 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kleenestar.Model.Test", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KleeneStar.Model.Sqlite", "..\..\KleeneStar.Model\src\KleeneStar.Model.Sqlite\KleeneStar.Model.Sqlite.csproj", "{D00DBF2A-5500-88EF-1405-C92EB592EE44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KleeneStar.Portal", "..\..\KleeneStar.Protal\src\KleeneStar.Portal\KleeneStar.Portal.csproj", "{535F8D91-C4FB-8229-6889-FB57B98D78E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KleeneStar.Portal", "..\..\KleeneStar.Portal\src\KleeneStar.Portal\KleeneStar.Portal.csproj", "{535F8D91-C4FB-8229-6889-FB57B98D78E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KleeneStar.Protal.Test", "..\..\KleeneStar.Protal\src\KleeneStar.Protal.Test\KleeneStar.Protal.Test.csproj", "{2A3D95EF-56F9-7693-BF72-FD4ADE4EA0D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KleeneStar.Portal.Test", "..\..\KleeneStar.Portal\src\KleeneStar.Portal.Test\KleeneStar.Portal.Test.csproj", "{2A3D95EF-56F9-7693-BF72-FD4ADE4EA0D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
