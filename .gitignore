@@ -55,3 +55,4 @@ nunit-*.xml
 /.vs
 /src/.vs/KleeneStar
 /src/.vs/ProjectEvaluation
+/src/.vs/CopilotSnapshots
