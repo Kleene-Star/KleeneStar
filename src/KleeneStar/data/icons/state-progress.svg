@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  width="150"
+  height="150"
+  viewBox="0 0 150 150"
+  xmlns="http://www.w3.org/2000/svg">
+	<rect
+	  width="150"
+	  height="150"
+	  fill="#33c1ff"/>
+	<path
+	  d="M 58,44 110,75 58,106 Z"
+	  fill="#ffffff"
+	  stroke="#ffffff"
+	  stroke-width="10"
+	  stroke-linejoin="round"/>
+</svg>
