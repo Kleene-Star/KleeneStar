@@ -68,3 +68,11 @@ We welcome contributions in many areas:
 - Semantic modeling and naming conventions
 
 Feel free to fork the repository, open issues, or submit pull requests. For larger contributions, please reach out via kleenestar.project@gmail.com.
+
+# AI transparency notice
+
+Parts of this software, its documentation, and its assets were created with the assistance of AI-based tools, including large language models. AI-assisted contributions are reviewed by the project maintainer before they are included.
+
+---
+
+Become part of the **KleeneStar** community and help shape an open, modular data future.
