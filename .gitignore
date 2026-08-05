@@ -56,3 +56,5 @@ nunit-*.xml
 /src/.vs/KleeneStar
 /src/.vs/ProjectEvaluation
 /src/.vs/CopilotSnapshots
+/src/KleeneStar/data/index
+/src/KleeneStar/data/db
