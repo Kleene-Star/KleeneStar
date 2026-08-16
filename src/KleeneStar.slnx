@@ -1,0 +1,32 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="DebugLocal" />
+    <BuildType Name="Release" />
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="../../KleeneStar.Core/src/KleeneStar.Core.Test/KleeneStar.Core.Test.csproj">
+    <BuildType Solution="DebugLocal|*" Project="Debug" />
+  </Project>
+  <Project Path="../../KleeneStar.Core/src/KleeneStar.Core/KleeneStar.Core.csproj">
+    <BuildType Solution="DebugLocal|*" Project="Debug" />
+  </Project>
+  <Project Path="../../KleeneStar.Model/src/KleeneStar.Model.Sqlite/KleeneStar.Model.Sqlite.csproj">
+    <BuildType Solution="DebugLocal|*" Project="Debug" />
+  </Project>
+  <Project Path="../../KleeneStar.Model/src/Kleenestar.Model.Test/Kleenestar.Model.Test.csproj">
+    <BuildType Solution="DebugLocal|*" Project="Debug" />
+  </Project>
+  <Project Path="../../KleeneStar.Model/src/KleeneStar.Model/KleeneStar.Model.csproj">
+    <BuildType Solution="DebugLocal|*" Project="Debug" />
+  </Project>
+  <Project Path="../../KleeneStar.Portal/src/KleeneStar.Portal.Test/KleeneStar.Portal.Test.csproj">
+    <BuildType Solution="DebugLocal|*" Project="Debug" />
+  </Project>
+  <Project Path="../../KleeneStar.Portal/src/KleeneStar.Portal/KleeneStar.Portal.csproj">
+    <BuildType Solution="DebugLocal|*" Project="Debug" />
+  </Project>
+  <Project Path="KleeneStar/KleeneStar.csproj" />
+</Solution>

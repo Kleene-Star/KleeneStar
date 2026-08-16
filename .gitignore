@@ -58,3 +58,4 @@ nunit-*.xml
 /src/.vs/CopilotSnapshots
 /src/KleeneStar/data/index
 /src/KleeneStar/data/db
+/src/.vs/KleeneStar.slnx
