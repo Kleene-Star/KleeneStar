@@ -28,5 +28,11 @@
   <Project Path="../../KleeneStar.Portal/src/KleeneStar.Portal/KleeneStar.Portal.csproj">
     <BuildType Solution="DebugLocal|*" Project="Debug" />
   </Project>
+  <Project Path="../../KleeneStar.Templates/src/KleeneStar.Templates.Test/KleeneStar.Templates.Test.csproj">
+    <BuildType Solution="DebugLocal|*" Project="Debug" />
+  </Project>
+  <Project Path="../../KleeneStar.Templates/src/KleeneStar.Templates/KleeneStar.Templates.csproj">
+    <BuildType Solution="DebugLocal|*" Project="Debug" />
+  </Project>
   <Project Path="KleeneStar/KleeneStar.csproj" />
 </Solution>
