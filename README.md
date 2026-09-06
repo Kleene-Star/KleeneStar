@@ -6,46 +6,53 @@
 
 Whether you're building a local knowledge base, an issue tracker, or a distributed collaboration platform, **KleeneStar** provides the foundation for scalable, privacy, conscious applications, with full control over infrastructure and semantics.
 
-# Getting Started
+# Quick Install
 
-To get started with **KleeneStar**, you'll set up the core runtime environment that powers all modules and plugins. This guide walks you through cloning the repository, restoring dependencies, and launching the server locally.
+The quickest way to get **KleeneStar** up and running - including all required sibling repositories and the **WebExpress** framework packages - is the quick install script. It clones or updates the full workspace, restores the NuGet dependencies (including the **WebExpress** libraries), builds the server and starts it via `dotnet run`.
 
-For a deeper understanding of the system architecture, data model, and extension points, see the [documentation](./docs/).
+Prerequisites: [git](https://git-scm.com) and the [.NET 10 SDK](https://dot.net/download).
 
-## Clone the repository
-
-Begin by cloning the **KleeneStar** repository to your local development environment. This gives you access to the full source code, including the plugin architecture, configuration files, and integrated modules.
+## Linux, macOS, WSL2, Termux
 
 ```
-git clone https://github.com/kleene-star/kleenestar.git
-cd kleenestar
+curl -fsSL https://raw.githubusercontent.com/kleenestar-project/KleeneStar/develop/install.sh | bash
 ```
 
-Once inside the project directory, you're ready to prepare the system for execution.
+## Windows (native, PowerShell)
 
-## Restore dependencies
+Heads up: Native Windows runs **KleeneStar** without WSL (Windows Subsystem for Linux) - the **WebExpress**-based web server and all plugins work natively. If you'd rather use WSL2, the Linux/macOS one-liner above works there too. Found a bug? Please [file an issue](https://github.com/kleenestar-project/KleeneStar/issues).
 
-**KleeneStar** is built on .NET and uses NuGet to manage its dependencies. Restoring ensures that all required packages, such as **WebExpress** libraries and plugin interfaces, are downloaded and correctly linked.
-
-```
-dotnet restore
-```
-
-This step may take a moment depending on your environment. After completion, the system is ready to compile and run.
-
-## Run the server
-
-Now you can launch the KleeneStar WebServer. This starts the runtime environment, loads all configured plugins, and initializes the application logic.
+Run this in PowerShell:
 
 ```
+iex (irm https://raw.githubusercontent.com/kleenestar-project/KleeneStar/develop/install.ps1)
+```
+
+The script prepares the following layout next to each other and launches the server afterwards:
+
+```
+KleeneStar/
+├── KleeneStar/           (main repository - the web server you start)
+├── KleeneStar.Core/
+├── KleeneStar.Model/
+├── KleeneStar.Portal/
+└── KleeneStar.Templates/
+```
+
+Once the script finishes, **KleeneStar** is running and accessible at [http://localhost/kleenestar](http://localhost/kleenestar). To restart it later:
+
+```
+cd KleeneStar/KleeneStar/src/KleeneStar
 dotnet run
 ```
 
-Once running, the server will be accessible locally. You can open your browser and navigate to:
+Optional environment variables to customize the installation:
 
-[http://localhost](http://localhost)
-
-This is the default entry point for testing, development, and interaction with the modular system.
+| Variable             | Description                                        | Default      |
+|----------------------|----------------------------------------------------|--------------|
+| `KLEENESTAR_DIR`     | Installation directory                             | `KleeneStar` |
+| `KLEENESTAR_BRANCH`  | Branch checked out for all repositories            | `develop`    |
+| `KLEENESTAR_NO_RUN`  | Set to `1` to only build and skip starting the app | (unset)      |
 
 # Legal & Licensing
 
